@@ -1,0 +1,9 @@
+Estas son las librerías usadas
+pandas
+matplotlib
+seaborn
+request
+sdmx
+os
+zipfile
+matplotlib.pyplot
