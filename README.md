@@ -24,3 +24,11 @@ clean_union.py   → Limpieza, estrucuturación y unificación de datasets en un
 resumen.py       → Generación de resumen estadístico y gráficos
 
 README.md        → Presentación del proyecto
+
+Cada uno de los programas PY corren por separado, al final se debe correr el programa   
+
+      clean_union.py que genera el archivo data_raw\union_final.csv
+
+Después para generar los gráficos y tablas de resultado se ejecuta el programa
+      
+      resumen.py
