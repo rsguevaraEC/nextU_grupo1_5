@@ -25,6 +25,21 @@ resumen.py       → Generación de resumen estadístico y gráficos
 
 README.md        → Presentación del proyecto
 
+
+## ✅ Verificación de ejecución
+
+Los scripts fueron ejecutados localmente en Visual Studio Code con Python 3.12.  
+Los resultados generados se encuentran en la carpeta `data_raw/`, incluyendo:
+
+- `grafico_conteo_fuentes.png` → gráfico de cantidad de registros por fuente  
+- `grafico_proporcion_fuentes.png` → gráfico de proporción de registros  
+- `resumen_estadistico.csv` → resumen estadístico del dataset unificado  
+
+Para reproducir el análisis:
+```bash
+pip install -r requirements.txt
+python resumen.py
+
 Cada uno de los programas PY corren por separado, al final se debe correr el programa   
 
       clean_union.py que genera el archivo data_raw\union_final.csv
