@@ -1,0 +1,12 @@
+,pais,fecha,indicador,valor,fuente
+count,115735,115735,115735,115321.0,115735
+unique,11,2515,24,,5
+top,ARG,2024-01-01,percepcion_eco_pais,,Latinobarómetro 2024 – Opinión pública económica y social
+freq,12462,108200,10814,,108140
+mean,,,,321100758179.248,
+std,,,,14423214116929.096,
+min,,,,-12.7194690092717,
+25%,,,,2.0,
+50%,,,,3.0,
+75%,,,,4.0,
+max,,,,1193815211259000.0,
