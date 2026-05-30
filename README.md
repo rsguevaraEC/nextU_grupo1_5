@@ -15,7 +15,8 @@ bcc.py     → Información del Banco Central de Colombia
 
 fmi.py     → Información del Fondo monetario internacional
 
-lbr.py     → Descargar el archivo Zip y extraer los archivos del Latinobarómetro
+lbr.py     → Descargar el archivo Zip y extraer los archivos del Latinobarómetro, este debe ser ejecutado primero.
+lbr2.py    → Trabaja con el archivo interno, depura y crea el archivo final de Latinobarómetro.
 
 wb.py      → Información del Banco Mundial
 
