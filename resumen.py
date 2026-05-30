@@ -40,36 +40,38 @@ print("\n✔ Tabla por fuente guardada en data_raw/resumen_por_fuente.csv")
 # ---------------------------------------------------------
 # 4. Gráfico alternativo: barras del tamaño de cada dataset
 # ---------------------------------------------------------
-plt.figure(figsize=(10,6))
-sns.barplot(data=tabla_fuente, x="fuente", y="cantidad_registros", palette="viridis")
+# Sort the data by 'cantidad_registros' for better visualization
+tabla_fuente_sorted = tabla_fuente.sort_values(by='cantidad_registros', ascending=False)
 
-plt.title("Cantidad de registros por fuente de datos")
-plt.xlabel("Fuente")
-plt.ylabel("Número de registros")
-plt.xticks(rotation=45)
-plt.tight_layout()
+plt.figure(figsize=(12, 8)) # Increase figure size for better readability
+sns.barplot(data=tabla_fuente_sorted, y='fuente', x='cantidad_registros', palette='viridis')
+plt.title('Cantidad de Registros por Fuente de Datos')
+plt.xlabel('Cantidad de Registros')
+plt.ylabel('Fuente de Datos')
+plt.tight_layout() # Adjust layout to prevent labels from being cut off
+plt.savefig('data_raw/grafico_conteo_fuentes.png')
+plt.close() # Close the figure to free up memory
 
-plt.savefig("data_raw/grafico_conteo_fuentes.png", dpi=300)
-plt.show()
-
-print("\n✔ Gráfico guardado en data_raw/grafico_conteo_fuentes.png")
+print('✔ Gráfico de conteo de fuentes guardado en data_raw/grafico_conteo_fuentes.png')
 
 # ---------------------------------------------------------
 # 5. Gráfico adicional: proporción de registros (pie chart)
 # ---------------------------------------------------------
-plt.figure(figsize=(8,8))
-plt.pie(
-    tabla_fuente["cantidad_registros"],
-    labels=tabla_fuente["fuente"],
-    autopct="%1.1f%%",
-    startangle=140,
-    colors=sns.color_palette("viridis", len(tabla_fuente))
-)
+# Calculate proportions
+tabla_fuente['proporcion'] = tabla_fuente['cantidad_registros'] / tabla_fuente['cantidad_registros'].sum()
 
-plt.title("Proporción de registros por fuente")
+# Sort by proportion for better visualization
+tabla_fuente_proporcion_sorted = tabla_fuente.sort_values(by='proporcion', ascending=False)
+
+plt.figure(figsize=(12, 8)) # Increase figure size
+sns.barplot(data=tabla_fuente_proporcion_sorted, y='fuente', x='proporcion', palette='magma')
+plt.title('Proporción de Registros por Fuente de Datos')
+plt.xlabel('Proporción')
+plt.ylabel('Fuente de Datos')
+plt.xlim(0, 1) # Set x-axis limit from 0 to 1 for proportions
+plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: '{:.0%}'.format(x))) # Format as percentage
 plt.tight_layout()
+plt.savefig('data_raw/grafico_proporcion_fuentes.png')
+plt.close()
 
-plt.savefig("data_raw/grafico_proporcion_fuentes.png", dpi=300)
-plt.show()
-
-print("✔ Gráfico de proporciones guardado en data_raw/grafico_proporcion_fuentes.png")
+print('✔ Gráfico de proporciones guardado en data_raw/grafico_proporcion_fuentes.png')
