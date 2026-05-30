@@ -82,5 +82,6 @@ for bar in bars:
 
 plt.tight_layout()
 plt.savefig("data_raw/grafico_proporcion_fuentes_barras.png", dpi=300)
+print('✔ Gráfico de proporciones guardado en data_raw/grafico_proporcion_fuentes_barras.png')
 plt.show()
 plt.close()
